@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090908">
+    <meta name="description" content="Carta de Gastrobar Villaverde: sabores del mundo en un solo lugar.">
+    <title>Carta — Gastrobar Villaverde</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="menu.js" defer></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__dust" aria-hidden="true"></div>
+      <div class="hero__content">
+        <img class="brand-logo" src="logo.png" alt="Gastrobar Villaverde">
+        <p class="hero__overline">GASTROBAR VILLAVERDE · DESDE LA HABANA</p>
+        <h1>Nuestra<br><em>Carta</em></h1>
+        <span class="hero__rule" aria-hidden="true"></span>
+        <p class="hero__tagline">Sabores del mundo en un solo lugar</p>
+      </div>
+      <div class="hero__coordinates" aria-hidden="true">23°07′ N &nbsp; 82°23′ O</div>
+    </header>
+
+    <nav class="category-nav" aria-label="Categorías de la carta">
+      <div class="category-nav__inner" id="category-nav"></div>
+    </nav>
+
+    <main class="menu" id="menu-content" aria-live="polite">
+      <header class="menu__heading">
+        <p class="menu__eyebrow" id="category-eyebrow"></p>
+        <h2 id="category-title"></h2>
+        <span class="menu__ornament" aria-hidden="true">✳</span>
+      </header>
+      <div class="menu__groups" id="menu-groups"></div>
+      <p class="menu__note">Precios expresados en moneda nacional · MN</p>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__stars" aria-label="Cinco estrellas">★ <span>★</span> ★ <span>★</span> ★</div>
+      <p class="footer__name">Gastrobar Villaverde</p>
+      <p class="footer__copyright">© 2026 · Todos los derechos reservados</p>
+    </footer>
+  </body>
+</html>
