@@ -50,10 +50,10 @@ const menuData = [
         ["Dados de Jamón y Queso Blanco", "Ham and white cheese cubes", "800 MN"],
         ["Dados de Queso Gouda", "Cubes of gouda cheese", "1,800 MN"],
         ["Dados de Jamón y Queso Gouda", "Ham and gouda cheese cubes", "2,000 MN"],
-        ["Picadera Arguelles", "Croquettes, bruschettas and tostones stuffed with ham and cheese", null, true],
+        ["Picadera Arguelles", "Croquettes, bruschettas and tostones stuffed with ham and cheese", "3,000 MN", true],
         ["Coctel de Camarón", "Shrimp cocktail", "2,200 MN"],
         ["Coctel de Pescado", "Fish cocktail", "1,000 MN"],
-        ["Picadera Villaverde", "Croquettes, bruschettas, plantain chips and ham and cheese cubes", null]
+        ["Picadera Villaverde", "Croquettes, bruschettas, plantain chips and ham and cheese cubes", "3,500 MN"]
       ] }
     ]
   },
