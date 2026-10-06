@@ -350,6 +350,37 @@ const menuData = [
   }
 ];
 
+const menuImages = {
+  "Suero de Helado de Chocolate": "Batido de Chocolate.jpg",
+  "Bistec de Cerdo Encebollado": "Bistec de Cerdo Encebollado.jpg",
+  "Café Expresso": "Café Expresso.jpg",
+  "Chicharritas": "Chicharritas.jpg",
+  "Crema Aurora": "Crema Aurora.jpg",
+  "Crema de Queso Blanco": "Crema de Queso Blanco.jpg",
+  "Crema de Queso Gouda": "Crema de Queso Gouda.jpg",
+  "Daiquirí": "Daiquirí Frappé.jpg",
+  "Enchilado de Camarón": "Enchilado de Camarones.jpg",
+  "Ensalada Fría": "Ensalada Fría.jpg",
+  "Spaguetti Napolitano Queso Blanco": "Espaguetis de Queso.jpg",
+  "Frapuchino": "Frappuchino.jpg",
+  "Fricase de Cerdo": "Fricasés de Cerdo.jpg",
+  "Kebab de Cerdo": "Kebab de Cerdo.jpg",
+  "Kebab de Pollo": "Kebab de Pollo.jpg",
+  "Lasaña": "Lasaña.jpg",
+  "Limonada Villaverde": "Limonada Villaverde.jpg",
+  "Macarrones Napolitano Queso Blanco": "Macarrón de Queso.jpg",
+  "Masa de Cerdo": "Masas de Cerdo.jpg",
+  "Paella Villaverde": "Paella.jpg",
+  "Pastas al Horno": "Pasta al Horno.jpg",
+  "Pizza Queso Blanco 30cm": "Pizza de Queso.jpg",
+  "Shot de Tequila": "Shot de Tequila.jpg",
+  "Tacos de Camarón": "Tacos de Camarón.jpg",
+  "Tacos de Cerdo": "Tacos de Cerdo.jpg",
+  "Tacos de Vegetales": "Tacos de Vegetales.jpg",
+  "Tostones Rellenos con Atún": "Tostones Rellenos de Atún.jpg",
+  "Tostones Rellenos con Queso Blanco": "Tostones Rellenos de Queso Blanco.jpg"
+};
+
 const nav = document.querySelector("#category-nav");
 const title = document.querySelector("#category-title");
 const eyebrow = document.querySelector("#category-eyebrow");
@@ -363,15 +394,16 @@ function renderCategory(index) {
     const groupStar = group.featured ? '<span class="menu-item__featured" aria-label="Recomendado"> ★</span>' : "";
     const heading = group.name ? `<h3 class="menu-group__title">${group.name}${groupStar}</h3>` : "";
     const items = group.items.map(([name, translation, price, featured]) => {
-      const modifier = translation ? "" : " menu-item--description";
-      const subtitle = translation ? `<p class="menu-item__translation">${translation}</p>` : "";
+      const imageFile = menuImages[name];
+      const imageSource = imageFile ? `assets/menu/${encodeURIComponent(imageFile)}` : "logo.png";
+      const imageModifier = imageFile ? "" : " menu-item__image--placeholder";
       const star = featured ? '<span class="menu-item__featured" aria-label="Recomendado"> ★</span>' : "";
-      return `<article class="menu-item${modifier}">
+      return `<article class="menu-item">
+        <img class="menu-item__image${imageModifier}" src="${imageSource}" alt="${imageFile ? name : `Gastrobar Villaverde: ${name}`}" loading="lazy">
+        <span class="menu-item__price">${price || ""}</span>
         <div class="menu-item__details">
           <h4 class="menu-item__name">${name}${star}</h4>
-          ${subtitle}
         </div>
-        <span class="menu-item__price">${price || ""}</span>
       </article>`;
     }).join("");
     return `<section class="menu-group">${heading}${items}</section>`;

@@ -211,7 +211,7 @@ button {
 }
 
 .menu {
-  width: min(100% - 48px, 820px);
+  width: min(100% - 48px, 1240px);
   min-height: 470px;
   margin: 0 auto;
   padding: 87px 0 78px;
@@ -249,18 +249,24 @@ button {
 }
 
 .menu__groups {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 34px;
+  row-gap: 62px;
   animation: reveal 360ms ease both;
 }
 
 .menu-group {
-  margin: 0 0 43px;
+  display: contents;
 }
 
 .menu-group__title {
   display: flex;
+  grid-column: 1 / -1;
   align-items: center;
   gap: 15px;
-  margin: 0 0 10px;
+  margin: 20px 0 2px;
   color: var(--gold);
   font-size: 9px;
   font-weight: 700;
@@ -276,45 +282,87 @@ button {
 }
 
 .menu-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 20px;
-  min-height: 65px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(242, 238, 228, 0.085);
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  flex-direction: column;
+  overflow: visible;
+  background: transparent;
+  text-align: center;
+  transition: transform 180ms ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+}
+
+.menu-item__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.menu-item__image--placeholder {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  padding: 16%;
+  background: #11100e;
+  border-radius: 24px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.55;
 }
 
 .menu-item__name {
   margin: 0;
-  color: var(--paper);
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.05;
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.12;
 }
 
 .menu-item__featured {
   color: var(--gold);
   font-family: var(--sans);
-  font-size: 12px;
-  vertical-align: 3px;
+  font-size: 11px;
 }
 
-.menu-item__translation {
-  margin: 5px 0 0;
-  color: #88857d;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-style: italic;
-  line-height: 1.15;
+.menu-item__details {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 19px 4px 0;
 }
 
 .menu-item__price {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.7px;
+  position: absolute;
+  z-index: 2;
+  top: -15px;
+  left: -14px;
+  display: flex;
+  min-width: 142px;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px 10px 14px;
+  border-radius: 10px 17px 10px 10px;
+  background: #e0b94f;
+  clip-path: polygon(0 0, 100% 0, 89% 100%, 0 100%);
+  color: #090908;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -322,19 +370,8 @@ button {
   display: none;
 }
 
-.menu-item--description {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0;
-  padding: 17px 0;
-}
-
-.menu-item--description .menu-item__name {
-  font-size: 25px;
-}
-
-.menu-item--description .menu-item__translation {
-  max-width: 570px;
-  line-height: 1.45;
+.menu-item__translation {
+  display: none;
 }
 
 .menu__note {
@@ -451,25 +488,45 @@ button {
   }
 
   .menu {
-    width: min(100% - 38px, 600px);
-    padding: 65px 0 58px;
+    width: calc(100% - 30px);
+    padding: 46px 0 48px;
+  }
+
+  .menu__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 18px;
   }
 
   .menu__heading {
-    margin-bottom: 43px;
+    margin-bottom: 34px;
   }
 
-  .menu-item {
-    gap: 12px;
-    min-height: 61px;
+  .menu-group__title {
+    margin-top: 12px;
   }
 
   .menu-item__name {
-    font-size: 22px;
+    font-size: 17px;
+  }
+
+  .menu-item__details {
+    padding: 13px 3px 0;
   }
 
   .menu-item__price {
-    font-size: 10px;
+    top: -10px;
+    left: -6px;
+    min-width: 104px;
+    min-height: 45px;
+    padding: 8px 13px 8px 9px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1020px) {
+  .menu__groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 50px 26px;
   }
 }
 
